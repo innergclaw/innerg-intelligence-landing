@@ -384,7 +384,11 @@
 
         // Video click handler
         function openVideo(videoId) {
-            window.open('https://www.youtube.com/@InnerGIntel', '_blank');
+            if (videoId === 'protecting-your-job') {
+                window.open('https://youtu.be/dexhGl9B86w?si=P6vXJidAjdr7Yzih', '_blank');
+            } else {
+                window.open('https://www.youtube.com/@InnerGIntel', '_blank');
+            }
         }
 
         // Symbolic activation on load
