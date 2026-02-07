@@ -1,5 +1,13 @@
 [
   {
+    "id": "openclaw-local-setup",
+    "title": "Running OpenClaw Locally: A Real-World Setup Guide",
+    "date": "2026-02-07",
+    "excerpt": "How I built a 24/7 automated workflow using local OpenClaw, Telegram control, and responsible agent permissions.",
+    "content": "<p>I've been running some powerful backend operations with OpenClaw locally. Giving it access to more of my connections — responsibly — has been a real game changer.</p><p>Even using Kimi K2.5, which hasn't shown any lag or issues.</p><h3>You Don't Need a Mac Mini</h3><p>Key point: you do <strong>NOT</strong> need a Mac Mini. This can run on your own computer if you actually understand what you're doing and respect security boundaries.</p><p>@innerg_signal hooked something up for that in the GitHub.</p><h3>Telegram as Command Center</h3><p>Most of the control happens inside a Telegram thread — no laptop, no constant tab switching. That alone changed the workflow 10x.</p><p>And the Telegram UI with iOS 26 is pretty smooth.</p><h3>Agent Identity & Safety</h3><p>For newcomers or interested minds, I created:</p><ul><li>An agent identity based on InnerG (@InnerGIntel) core principles</li><li>A foundation with purpose & awareness</li></ul><p>This part matters more than people think.</p><p>Also dropped agent safety guidelines for this new era — using open source code like OpenClaw 🦞 public, open-source, and meant to evolve for the community (@openclaw). Giving agents access without safety thinking is reckless.</p><h3>GitHub + Telegram Integration</h3><p>Everything lives on GitHub, deployed + updated directly from Telegram. Automation 24/7.</p><p>API keys given once — after that, the agent can update docs and push live changes.</p><h3>The Bottom Line</h3><p>When learned correctly, this tech buys you time, energy & a brand new perspective — that is, to your own limits. Your agent runs 24/7 while you focus on higher-level work instead of busywork, small and repetitive tasks.</p><p><strong>This is execution done right.</strong></p>",
+    "tags": ["openclaw", "automation", "telegram", "tutorial"]
+  },
+  {
     "id": "welcome-to-innerg",
     "title": "Welcome to InnerG Intelligence",
     "date": "2026-02-07",
