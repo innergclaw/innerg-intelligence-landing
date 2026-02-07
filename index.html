@@ -203,6 +203,31 @@
             border: 2px solid var(--accent);
             box-shadow: 0 0 40px var(--accent-glow);
         }
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .cta-box {
+            background: rgba(0, 255, 65, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--accent-dim);
+            transition: all 0.3s ease;
+        }
+        .cta-box:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+        .cta-box h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .cta-box p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
         .cta-section h2 {
             color: var(--text);
         }
@@ -550,9 +575,20 @@
             </div>
         </div>
         <section class="cta-section">
-            <h2>Join the Consciousness Revolution</h2>
-            <p style="margin: 1rem 0; font-size: 1.1rem;">Subscribe to InnerG Intelligence and become part of the collective awakening</p>
-            <a href="https://www.youtube.com/@InnerGIntel" target="_blank" class="cta-button">Visit YouTube Channel</a>
+            <h2>The Conversation</h2>
+            <p style="margin: 1rem 0; font-size: 1.1rem;">Multiple ways to engage with the InnerG ecosystem</p>
+            <div class="cta-grid">
+                <div class="cta-box">
+                    <h3>🎥 Join the Consciousness Revolution</h3>
+                    <p>Subscribe to InnerG Intelligence and become part of the collective awakening</p>
+                    <a href="https://www.youtube.com/@InnerGIntel" target="_blank" class="cta-button">Visit YouTube Channel</a>
+                </div>
+                <div class="cta-box">
+                    <h3>🦞 Build With InnerG Intel x InnerGClaw</h3>
+                    <p>Explore our open-source tools, agent frameworks, and automation systems on GitHub</p>
+                    <a href="https://github.com/innergclaw" target="_blank" class="cta-button">View GitHub</a>
+                </div>
+            </div>
         </section>
     </div>
     <script>
