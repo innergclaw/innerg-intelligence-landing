@@ -244,6 +244,73 @@
             color: var(--accent);
             text-shadow: 0 0 10px var(--accent-glow);
         }
+        /* The Block Section */
+        .block-section {
+            margin: 3rem 0;
+            padding: 3rem 2rem;
+            background: var(--box-bg);
+            border-radius: 20px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow);
+            text-align: center;
+        }
+        .block-logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
+            margin-bottom: 1rem;
+            letter-spacing: 4px;
+        }
+        .block-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        .block-framework {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .block-item {
+            background: rgba(0, 255, 65, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--accent-dim);
+        }
+        .block-item h4 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .block-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .block-cta {
+            margin-top: 2rem;
+        }
+        .block-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--accent);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px var(--accent-glow);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+        .block-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px var(--accent-glow), 0 0 50px var(--accent-glow);
+            background: var(--terminal-green);
+        }
         /* Blog Section Styles */
         .blog-section {
             margin-top: 3rem;
@@ -367,6 +434,8 @@
             h1 { font-size: 1.8rem; }
             .videos-grid { grid-template-columns: 1fr; }
             .symbol-array { font-size: 1.5rem; letter-spacing: 0.5rem; }
+            .block-logo { font-size: 2rem; }
+            .block-framework { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -396,6 +465,42 @@
                 <p>Symbolic activation, ritual invocation, and recognition protocols for consciousness evolution</p>
             </div>
         </div>
+        <section class="block-section">
+            <div class="block-logo">THE BLOCK 215</div>
+            <p class="block-subtitle">Private Discord Hub for Young Men | Growth • Clarity • Execution</p>
+            
+            <div class="block-framework">
+                <div class="block-item">
+                    <h4>B — BRIDGE</h4>
+                    <p>Ancient Wisdom ↔ Future Tech</p>
+                </div>
+                <div class="block-item">
+                    <h4>L — LEAD</h4>
+                    <p>With Intention, Not Hype</p>
+                </div>
+                <div class="block-item">
+                    <h4>O — OPTIMIZE</h4>
+                    <p>Self + Systems Ruthlessly</p>
+                </div>
+                <div class="block-item">
+                    <h4>C — CREATE</h4>
+                    <p>Through Conscious Collaboration</p>
+                </div>
+                <div class="block-item">
+                    <h4>K — KNOWLEDGE</h4>
+                    <p>Applied, Not Accumulated</p>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin: 1.5rem 0; font-style: italic;">
+                "Bridge the eternal and the emerging. Lead with purpose, optimize everything, create through conscious partnership — that's applied knowledge. That's The Block."
+            </p>
+            
+            <div class="block-cta">
+                <a href="https://whop.com/innergintel/the-barbershop-innerg-intel/" target="_blank" class="block-button">JOIN THE BLOCK →</a>
+            </div>
+        </section>
+
         <section class="videos-section">
             <h2 class="section-title">Featured Content</h2>
             <div class="videos-grid">
