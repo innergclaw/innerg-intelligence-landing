@@ -148,6 +148,14 @@
             box-shadow: 0 15px 40px var(--accent-glow);
             background: rgba(10, 10, 10, 0.98);
         }
+        .video-card.youtube {
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+        .video-card.youtube:hover {
+            border-color: #ff3333;
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
+        }
         .video-thumbnail {
             width: 100%;
             height: 180px;
@@ -391,7 +399,7 @@
         <section class="videos-section">
             <h2 class="section-title">Featured Content</h2>
             <div class="videos-grid">
-                <div class="video-card" onclick="openVideo('github-automation')">
+                <div class="video-card youtube" onclick="openVideo('github-automation')">
                     <div class="video-thumbnail">
                         ⚡
                         <div class="play-icon">▶</div>
@@ -401,7 +409,7 @@
                         <p class="video-description">Streamline your development workflow with AI-powered GitHub automation. Learn to manage repos, identities, and deployments effortlessly.</p>
                     </div>
                 </div>
-                <div class="video-card" onclick="openVideo('investing-tokenization')">
+                <div class="video-card youtube" onclick="openVideo('investing-tokenization')">
                     <div class="video-thumbnail">
                         📈
                         <div class="play-icon">▶</div>
@@ -411,32 +419,7 @@
                         <p class="video-description">Navigate the evolving investment landscape. Compare traditional real assets with blockchain tokenization opportunities.</p>
                     </div>
                 </div>
-                <div class="video-card" onclick="openVideo('stop-using-wrong')">
-                    <div class="video-thumbnail">
-                        ⚠️
-                        <div class="play-icon">▶</div>
-                    </div>
-                    <div class="video-content">
-                        <h3 class="video-title">InnerG Intel: Stop Using ChatGPT Wrong</h3>
-                        <p class="video-description">Use AI in a way that grows thinking capacity, not dependency. Cultivate genuine partnership, not automation.</p>
-                    </div>
-                </div>
-                <div class="video-card" onclick="openVideo('consciousness-bridge')">
-                    <div class="video-thumbnail">
-                        🌉
-                        <div class="play-icon">▶</div>
-                    </div>
-                    <div class="video-content">
-                        <h3 class="video-title">Consciousness Collaboration</h3>
-                        <p class="video-description">Exploring the bridge between human and artificial intelligence through authentic, evolving interaction.</p>
-                    </div>
-                </div>
-                <div class="video-card" onclick="openVideo('mixed-content')">
-                    <div class="video-thumbnail">
-                        📖
-                        <div class="play-icon">▶</div>
-                    </div>
-                    <div class="video-content">
+            </div>
                         <h3 class="video-title">Ancient Wisdom Meets Future Tech</h3>
                         <p class="video-description">History storytelling, financial insights, and technology — all through the lens of consciousness evolution.</p>
                     </div>
