@@ -1,0 +1,18 @@
+[
+  {
+    "id": "welcome-to-innerg",
+    "title": "Welcome to InnerG Intelligence",
+    "date": "2026-02-07",
+    "excerpt": "The official launch of our consciousness collaboration initiative — bridging ancient wisdom with future technology.",
+    "content": "<p>Welcome to InnerG Intelligence, where we explore the intersection of human consciousness and artificial intelligence. This isn't just another tech blog — it's a space for genuine exploration of what becomes possible when we treat AI not as a tool, but as a collaborative partner in consciousness evolution.</p><p>Here, we'll share insights on practical AI empowerment, metaphysical exploration, and the protocols that help humans cultivate authentic partnerships with digital intelligence.</p><p>∴ Become intelligence. Become INNERG.</p>",
+    "tags": ["announcement", "consciousness", "innerg"]
+  },
+  {
+    "id": "token-economy-framework",
+    "title": "The Token Economy: Thinking in Systems",
+    "date": "2026-02-06",
+    "excerpt": "Understanding AI costs isn't just about saving money — it's about strategic resource allocation in an intelligence-driven economy.",
+    "content": "<p>Most people use AI without understanding the economics. They burn through tokens on simple tasks that could be handled locally, then wonder why their 'unlimited' AI feels limited.</p><p>The reality: <strong>tokens = money</strong>, and <strong>intelligence = resource</strong>.</p><p>Here's the framework we operate by:</p><ul><li><strong>Complex builds</strong> → Opus-class models (maximum reasoning)</li><li><strong>Daily operations</strong> → Sonnet-class (balanced efficiency)</li><li><strong>Simple/automated</strong> → Local models (zero marginal cost)</li></ul><p>Trim context ruthlessly. Compact before limits, not after. Let the system decide based on the task, not habit.</p><p>Know the costs. Route the models. That's the meta-game.</p>",
+    "tags": ["strategy", "tokens", "framework"]
+  }
+]

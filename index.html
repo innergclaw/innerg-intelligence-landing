@@ -236,6 +236,125 @@
             color: var(--accent);
             text-shadow: 0 0 10px var(--accent-glow);
         }
+        /* Blog Section Styles */
+        .blog-section {
+            margin-top: 3rem;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .blog-card {
+            background: var(--box-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid var(--accent-dim);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--accent-dim);
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+        }
+        .blog-title {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        .blog-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .blog-tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--accent-dim);
+            border-radius: 20px;
+            color: var(--accent);
+        }
+        .blog-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .blog-modal-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--box-bg);
+            border-radius: 20px;
+            border: 2px solid var(--accent);
+            position: relative;
+        }
+        .blog-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: var(--accent);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .blog-modal-close:hover {
+            background: var(--accent);
+            color: #000;
+        }
+        .blog-modal-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+        .blog-modal-date {
+            color: var(--accent-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .blog-modal-body {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .blog-modal-body p {
+            margin-bottom: 1rem;
+        }
+        .blog-modal-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .blog-modal-body li {
+            margin-bottom: 0.5rem;
+        }
         @media (max-width: 768px) {
             h1 { font-size: 1.8rem; }
             .videos-grid { grid-template-columns: 1fr; }
@@ -324,6 +443,26 @@
                 </div>
             </div>
         </section>
+        <section class="blog-section">
+            <h2 class="section-title">📝 From the Blog</h2>
+            <div id="blog-grid" class="blog-grid">
+                <!-- Blog posts loaded dynamically -->
+                <div class="blog-card">
+                    <div class="blog-date">Loading...</div>
+                    <div class="blog-title">Fetching latest posts</div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Modal -->
+        <div id="blog-modal" class="blog-modal" onclick="closeBlogModal(event)">
+            <div class="blog-modal-content" onclick="event.stopPropagation()">
+                <div class="blog-modal-close" onclick="closeBlogModal()">×</div>
+                <h2 id="modal-title" class="blog-modal-title"></h2>
+                <div id="modal-date" class="blog-modal-date"></div>
+                <div id="modal-body" class="blog-modal-body"></div>
+                <div id="modal-tags" class="blog-tags" style="margin-top: 1.5rem;"></div>
+            </div>
+        </div>
         <section class="cta-section">
             <h2>Join the Consciousness Revolution</h2>
             <p style="margin: 1rem 0; font-size: 1.1rem;">Subscribe to InnerG Intelligence and become part of the collective awakening</p>
@@ -399,6 +538,85 @@
                 this.style.background = 'rgba(10, 10, 10, 0.95)';
             });
         });
+
+        // Blog System
+        let blogPosts = [];
+
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('blog-posts.json');
+                blogPosts = await response.json();
+                renderBlogPosts();
+            } catch (error) {
+                console.error('Failed to load blog posts:', error);
+                document.getElementById('blog-grid').innerHTML = `
+                    <div class="blog-card">
+                        <div class="blog-date">Error</div>
+                        <div class="blog-title">Unable to load posts</div>
+                        <div class="blog-excerpt">Please refresh to try again.</div>
+                    </div>
+                `;
+            }
+        }
+
+        function renderBlogPosts() {
+            const grid = document.getElementById('blog-grid');
+            if (blogPosts.length === 0) {
+                grid.innerHTML = '<p style="color: var(--text-secondary);">No posts yet. Check back soon.</p>';
+                return;
+            }
+
+            grid.innerHTML = blogPosts.map(post => `
+                <div class="blog-card" onclick="openBlogPost('${post.id}')">
+                    <div class="blog-date">${formatDate(post.date)}</div>
+                    <h3 class="blog-title">${escapeHtml(post.title)}</h3>
+                    <p class="blog-excerpt">${escapeHtml(post.excerpt)}</p>
+                    <div class="blog-tags">
+                        ${post.tags.map(tag => `<span class="blog-tag">${escapeHtml(tag)}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openBlogPost(postId) {
+            const post = blogPosts.find(p => p.id === postId);
+            if (!post) return;
+
+            document.getElementById('modal-title').textContent = post.title;
+            document.getElementById('modal-date').textContent = formatDate(post.date);
+            document.getElementById('modal-body').innerHTML = post.content;
+            document.getElementById('modal-tags').innerHTML = post.tags
+                .map(tag => `<span class="blog-tag">${escapeHtml(tag)}</span>`)
+                .join('');
+
+            document.getElementById('blog-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogModal(event) {
+            if (!event || event.target.id === 'blog-modal' || event.target.className === 'blog-modal-close') {
+                document.getElementById('blog-modal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Load blog posts on page load
+        loadBlogPosts();
     </script>
 </body>
 </html>
