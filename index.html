@@ -462,6 +462,43 @@
             .block-logo { font-size: 2rem; }
             .block-framework { grid-template-columns: 1fr; }
         }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+        .scroll-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--accent-glow), 0 0 50px var(--accent-glow);
+            background: var(--terminal-green);
+        }
+        .scroll-to-top::before {
+            content: '↑';
+        }
+        @media (max-width: 768px) {
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -591,6 +628,10 @@
             </div>
         </section>
     </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></button>
+
     <script>
         // Matrix rain effect
         const canvas = document.getElementById('matrix');
@@ -739,6 +780,27 @@
 
         // Load blog posts on page load
         loadBlogPosts();
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            const scrollThreshold = 300; // Show after scrolling 300px
+            if (window.scrollY > scrollThreshold) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top when clicked
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
